@@ -1,6 +1,8 @@
 from asyncio import sleep
 from pyrogram import *
+from collections import deque
 
+# тут скоро будет что-то
 
 @Client.on_message(filters.command("heart", prefixes = ".")&filters.me)
 def heart(_, msg):
@@ -41,3 +43,15 @@ def moon(_, msg):
 					sleep(0.7)
 		except ValueError:
 			msg.edit_text("〰 Не хватает аргументов.")
+
+			
+@Client.on_message(filters.command("boat", prefixes = ".")&filters.me)
+def boat(_, msg):
+	try:
+		boat = deque(list("🚣‍♀🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊"))
+		for _ in range(20):
+			sleep(1)
+			msg.edit_text("".join(boat))
+			boat.rotate(1)
+	except ValueError:
+		msg.edit_text("〰 Не хватает аргументов.")
