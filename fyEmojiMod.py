@@ -7,9 +7,8 @@ def emojicmd(_, msg):
 		d =[]
 		e = len(c)
 		for i in range(e):
-			rand = random.choice(emoji)
-			d.append(c[i])
-			d.append(rand)
+				rand = random.choice(emoji)
+				d.extend((c[i], rand))
 		f = len(d) - 1
 		d.pop(f)
 		t = "".join(d)
